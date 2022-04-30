@@ -1,0 +1,62 @@
+[
+  {
+    "id": "626c1c79c2d87188e50d8465",
+    "name": "Ford Mastant shelby",
+    "description": "Emerson Eaton",
+    "supplier_name": "Connie Lambert",
+    "picture": "https://i.ibb.co/xChhLY4/ford-mastang-shelby.jpg",
+    "balance": "$1,807.15",
+    "quantity": "$2,056.28",
+    "sold": "Mack Byers"
+  },
+  {
+    "id": "626c1c794bd84d357f1b69d2",
+    "name": "BMW",
+    "description": "Kenya Thornton",
+    "supplier_name": "Richard Drake",
+    "picture": "https://i.ibb.co/P59fk0s/bmw.jpg",
+    "balance": "$2,001.76",
+    "quantity": "$2,374.14",
+    "sold": "Harrington Young"
+  },
+  {
+    "id": "626c1c793a6db6713ae941d8",
+    "name": "marcedis",
+    "description": "Hendrix Wiley",
+    "supplier_name": "Helga Good",
+    "picture": "https://i.ibb.co/3mWCgyp/mercedes.jpg",
+    "balance": "$3,868.39",
+    "quantity": "$1,790.79",
+    "sold": "Whitney Heath"
+  },
+  {
+    "id": "626c1c79194bb3a614b653ae",
+    "name": "Audi",
+    "description": "Burch Miles",
+    "supplier_name": "Lina Washington",
+    "picture": "https://i.ibb.co/zn3c9K4/audi.jpg",
+    "balance": "$3,274.53",
+    "quantity": "$2,714.00",
+    "sold": "Louise Velazquez"
+  },
+  {
+    "id": "626c1c7917a023fd013d789b",
+    "name": "Hundai",
+    "description": "Catalina Stein",
+    "supplier_name": "Annmarie Roy",
+    "picture": "https://i.ibb.co/bmZPZV3/hundai.jpg",
+    "balance": "$1,668.23",
+    "quantity": "$2,724.50",
+    "sold": "Blanche Norman"
+  },
+  {
+    "id": "626c1c799eede4cfc759a8f3",
+    "name": "Lexus",
+    "description": "Sheila Holland",
+    "supplier_name": "Holloway Kennedy",
+    "picture": "https://i.ibb.co/W5Grsy1/lexus.jpg",
+    "balance": "$2,298.90",
+    "quantity": "$1,535.59",
+    "sold": "Deena Shepard"
+  }
+]
