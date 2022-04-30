@@ -4,6 +4,8 @@ import Header from './page/Shared/Header/Header';
 import Home from './page/Home/Home';
 import Footer from './page/Shared/Footer/Footer';
 import Login from './page/Login/Login';
+import Registration from './page/Registration/Registration';
+import ItemsUpdate from './page/ItemsUpdate/ItemsUpdate';
 
 function App() {
   return (
@@ -12,6 +14,8 @@ function App() {
       <Routes>
         <Route path='/' element={<Home></Home>}>Home</Route>
         <Route path='/login' element={<Login></Login>}>Log In</Route>
+        <Route path='/registration' element={<Registration></Registration>}>Registation</Route>
+        <Route path='/itemsupdate' element={<ItemsUpdate></ItemsUpdate>}>Items Update</Route>
       </Routes>
       <Footer></Footer>
     </div>
