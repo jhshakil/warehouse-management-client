@@ -15,6 +15,7 @@ const Item = (props) => {
                     <p>Balance: {balance}</p>
                     <p>Quantity: {quantity}</p>
                 </div>
+                <button className='bg-orange-300 p-2 w-full m-auto mt-8 rounded-lg font-bold'>Update</button>
             </div>
         </div>
     );
