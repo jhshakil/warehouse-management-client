@@ -17,7 +17,7 @@ const Item = (props) => {
                     <p>Quantity: {quantity}</p>
                 </div>
                 {/* <Link className='bg-orange-300 p-2 w-full m-auto mt-8 rounded-lg font-bold' to='/itemsupdate'>Update</Link> */}
-                <button className='bg-orange-300 p-2 w-1/4 block m-auto mt-8 rounded-lg font-bold'><Link to='/itemsupdate'>Update</Link></button>
+                <button className='bg-orange-300 p-2 w-1/4 block m-auto mt-8 rounded-lg font-bold'><Link to='/inventory'>Update</Link></button>
             </div>
         </div>
     );

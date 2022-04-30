@@ -6,6 +6,8 @@ import Footer from './page/Shared/Footer/Footer';
 import Login from './page/Login/Login';
 import Registration from './page/Registration/Registration';
 import ItemsUpdate from './page/ItemsUpdate/ItemsUpdate';
+import Inventory from './page/Inventory/Inventory';
+import RequireAuth from './page/Shared/RequireAuth/RequireAuth'
 
 function App() {
   return (
@@ -16,6 +18,9 @@ function App() {
         <Route path='/login' element={<Login></Login>}>Log In</Route>
         <Route path='/registration' element={<Registration></Registration>}>Registation</Route>
         <Route path='/itemsupdate' element={<ItemsUpdate></ItemsUpdate>}>Items Update</Route>
+        <Route path='/inventory' element={<RequireAuth>
+          <Inventory></Inventory>
+        </RequireAuth>}>Inventory</Route>
       </Routes>
       <Footer></Footer>
     </div>
