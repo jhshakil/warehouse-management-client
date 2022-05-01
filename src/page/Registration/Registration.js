@@ -12,7 +12,7 @@ const Registration = () => {
     const location = useLocation()
     const from = location.state?.from?.pathname || '/'
 
-    const [createUserWithEmailAndPassword, user] = useCreateUserWithEmailAndPassword(auth);
+    const [createUserWithEmailAndPassword, user] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
     const navigate = useNavigate();
     if (user) {
         navigate(from, { replace: true });
