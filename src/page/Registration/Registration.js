@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
+import SocialLogin from '../SocialLogin/SocialLogin';
 
 const Registration = () => {
     const emailRef = useRef('');
@@ -26,7 +27,7 @@ const Registration = () => {
     return (
         <div className='w-3/4 m-auto'>
             <h1 className='text-3xl font-bold text-center mt-8'>Registration</h1>
-            <button className='block m-auto p-3 bg-orange-300 rounded-lg mt-8 '>Register with Google</button>
+            <SocialLogin></SocialLogin>
             <form onSubmit={handleRegister} className='p-8'>
                 <input ref={emailRef} className='block m-auto bg-gray-300 w-1/2 mt-4 p-2' type="email" placeholder='Enter Your Email' />
                 <input ref={passwordRef} className='block m-auto bg-gray-300 w-1/2 mt-4 p-2' type="password" placeholder='Enter Your Password' />
