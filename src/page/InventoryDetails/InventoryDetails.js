@@ -71,8 +71,8 @@ const InventoryDetails = () => {
                 </form>
             </div>
             <div>
-                <h2 className='text-3xl font-bold mt-8 text-center'>Restock The Item</h2>
-                <Link className='block m-auto text-center bg-orange-300 font-bold w-1/4 mt-4 p-2' to='/manageitems'>Manage Items</Link>
+                <h2 className='text-3xl font-bold mt-8 text-center'>Manage Items</h2>
+                <Link className='block m-auto text-center bg-orange-300 font-bold w-1/4 mt-4 p-2' to='/manageitems'>Click Here</Link>
             </div>
         </div>
     );

@@ -9,6 +9,7 @@ import ItemsUpdate from './page/ItemsUpdate/ItemsUpdate';
 import InventoryDetails from './page/InventoryDetails/InventoryDetails';
 import RequireAuth from './page/Shared/RequireAuth/RequireAuth'
 import ManageItems from './page/ManageItems/ManageItems';
+import AddItem from './page/AddItem/AddItem';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <InventoryDetails></InventoryDetails>
         </RequireAuth>}>Inventory</Route>
         <Route path='/manageitems' element={<RequireAuth><ManageItems></ManageItems></RequireAuth>}>Manage Items</Route>
+        <Route path='/additem' element={<AddItem></AddItem>}>Add Item</Route>
       </Routes>
 
       <Footer></Footer>
