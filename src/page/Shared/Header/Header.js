@@ -12,7 +12,7 @@ const Header = () => {
     return (
         <div className='grid grid-cols-3 p-5 bg-orange-200'>
             <div>
-                <h1 className='text-5xl ml-16 font-bold'>Car Dealer</h1>
+                <h1 className='text-5xl ml-16 font-bold'><Link to='/'>Car Dealer</Link></h1>
             </div>
             <div className='col-span-2'>
                 {/* <Link className='mt-3' to='/'>Home</Link> */}
