@@ -1,23 +1,23 @@
 import React, { useEffect, useState } from 'react';
-import Item from './Item';
+import Inventory from './inventory';
 
-const Inventory = () => {
-    const [items, setItems] = useState([]);
+const Inventorys = () => {
+    const [inventorys, setInventorys] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/inventory')
+        fetch('http://localhost:5000/inventorys')
             .then(res => res.json())
-            .then(data => setItems(data))
+            .then(data => setInventorys(data))
     }, [])
     return (
         <div className='ml-8 mr-8'>
             <h1 className='text-4xl font-bold text-center m-16'>My Inventory Items</h1>
             <div className='grid grid-cols-3 gap-8'>
                 {
-                    items.map(item => <Item key={item._id} item={item}></Item>)
+                    inventorys.map(item => <Inventory key={item._id} item={item}></Inventory>)
                 }
             </div>
         </div>
     );
 };
 
-export default Inventory;
+export default Inventorys;
