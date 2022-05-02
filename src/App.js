@@ -20,11 +20,9 @@ function App() {
         <Route path='/login' element={<Login></Login>}>Log In</Route>
         <Route path='/registration' element={<Registration></Registration>}>Registation</Route>
         <Route path='/itemsupdate' element={<ItemsUpdate></ItemsUpdate>}>Items Update</Route>
-        <Route path='/inventory/:inventoryId' element={<RequireAuth>
-          <InventoryDetails></InventoryDetails>
-        </RequireAuth>}>Inventory</Route>
+        <Route path='/inventory/:inventoryId' element={<RequireAuth><InventoryDetails></InventoryDetails></RequireAuth>}>Inventory</Route>
         <Route path='/manageitems' element={<RequireAuth><ManageItems></ManageItems></RequireAuth>}>Manage Items</Route>
-        <Route path='/additem' element={<AddItem></AddItem>}>Add Item</Route>
+        <Route path='/additem' element={<RequireAuth><AddItem></AddItem></RequireAuth>}>Add Item</Route>
       </Routes>
 
       <Footer></Footer>

@@ -9,6 +9,21 @@ const ManageItems = () => {
             .then(res => res.json())
             .then(data => setInventorys(data))
     }, [])
+    const handleDelete = id => {
+        const proceed = window.confirm('Delete This Item')
+        if (proceed) {
+            const url = `http://localhost:5000/inventory/${id}`;
+            fetch(url, {
+                method: 'DELETE'
+            })
+                .then(res => res.json())
+                .then(data => {
+                    alert('Delete Item');
+                    const remaining = inventorys.filter(inventory => inventory._id !== id);
+                    setInventorys(remaining);
+                })
+        }
+    }
     return (
         <div>
             <h1 className='text-4xl font-bold text-center m-16'>My Inventory Items</h1>
@@ -29,7 +44,7 @@ const ManageItems = () => {
                     </thead>
                     <tbody>
                         {
-                            inventorys.map(item => <ManageItem key={item._id} item={item}></ManageItem>)
+                            inventorys.map(item => <ManageItem key={item._id} item={item} handleDelete={handleDelete}></ManageItem>)
                         }
                     </tbody>
                 </table>

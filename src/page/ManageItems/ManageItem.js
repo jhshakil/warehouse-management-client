@@ -1,7 +1,8 @@
 import React from 'react';
 
-const manageItem = ({ item }) => {
+const manageItem = ({ item, handleDelete }) => {
     const { _id, name, description, supplier_name, picture, balance, quantity, sold } = item;
+
     return (
         <tr>
             <th className='border-2 border-black border-solid p-4'>{_id}</th>
@@ -11,7 +12,7 @@ const manageItem = ({ item }) => {
             <th className='border-2 border-black border-solid p-4'>{supplier_name}</th>
             <th className='border-2 border-black border-solid p-4'>{quantity}</th>
             <th className='border-2 border-black border-solid p-4'>{balance}</th>
-            <th className='border-2 border-black border-solid p-4'>Delete</th>
+            <th className='border-2 border-black border-solid p-4'><button onClick={() => handleDelete(_id)} className='bg-red-500 p-2 rounded-lg text-white font-bold'>Delete</button></th>
         </tr>
     );
 };
