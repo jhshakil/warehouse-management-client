@@ -1,14 +1,19 @@
 import React, { useEffect, useState } from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
-import ManageItem from './ManageItem';
+import auth from '../../firebase.init';
+import MyItem from './MyItem';
 
-const ManageItems = () => {
+const MyItems = () => {
+    const [user] = useAuthState(auth);
     const [inventorys, setInventorys] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/inventory')
+        const email = user.email;
+        const url = `http://localhost:5000/myitems?email=${email}`
+        fetch(url)
             .then(res => res.json())
             .then(data => setInventorys(data))
-    }, [])
+    }, [user])
     const handleDelete = id => {
         const proceed = window.confirm('Delete This Item')
         if (proceed) {
@@ -44,14 +49,13 @@ const ManageItems = () => {
                     </thead>
                     <tbody>
                         {
-                            inventorys.map(item => <ManageItem key={item._id} item={item} handleDelete={handleDelete}></ManageItem>)
+                            inventorys.map(item => <MyItem key={item._id} item={item} handleDelete={handleDelete}></MyItem>)
                         }
                     </tbody>
                 </table>
             </div>
         </div>
     );
-
 };
 
-export default ManageItems;
+export default MyItems;

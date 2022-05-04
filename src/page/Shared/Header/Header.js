@@ -27,7 +27,7 @@ const Header = () => {
                             <Link className='mt-3 mr-8' to='/'>Home</Link>
                             <Link className='mt-3 mr-8' to='/manageitems'>Manage Items</Link>
                             <Link className='mt-3 mr-8' to='/additem'>Add Item</Link>
-                            <Link className='mt-3 mr-8' to='/myitem'>My Item</Link>
+                            <Link className='mt-3 mr-8' to='/myitems'>My Item</Link>
                             <Link onClick={handleLogout} className='mt-3 mr-8' to='/login'>Log Out</Link>
                         </div>
                         : <div className='flex justify-end text-xl font-bold mr-16'>
