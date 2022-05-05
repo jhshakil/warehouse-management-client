@@ -1,7 +1,15 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 const AddQuantity = () => {
+    // const [inventorys, setInventorys] = useState({});
+    // useEffect(() => {
+    //     const url = `http://localhost:5000/inventory/${inventoryId}`;
+    //     fetch(url)
+    //         .then(res => res.json())
+    //         .then(data => console.log(data.quantity))
+    // }, [])
+    // console.log(inventorys)
     const { inventoryId } = useParams()
     const quantityRef = useRef('');
     const handleQuantity = event => {

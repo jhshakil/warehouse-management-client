@@ -1,17 +1,69 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import AddQuantity from '../HandleQuantity/AddQuantity';
 
 const InventoryDetails = () => {
     const { inventoryId } = useParams()
-
+    const [modifiedCount, setModifiedCount] = useState('')
     const [inventory, setInventory] = useState({});
     useEffect(() => {
         const url = `http://localhost:5000/inventory/${inventoryId}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setInventory(data))
-    }, [inventory])
+    }, [modifiedCount])
+
+    // add quantity 
+    const quantityRef = useRef('');
+    const handleQuantity = event => {
+        event.preventDefault();
+        let oldQuantity = inventory.quantity;
+        let newQuantity = quantityRef.current.value;
+        let quantity = parseInt(oldQuantity) + parseInt(newQuantity)
+        if (!quantity) {
+            return alert('Please enter a valid quantity')
+        }
+        let newCount = ''
+        setModifiedCount(newCount)
+        const add = { quantity };
+        const url = `http://localhost:5000/inventory/${inventoryId}`
+        fetch(url, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(add)
+        })
+            .then(res => res.json())
+            .then(data => {
+                setModifiedCount(data.modifiedCount)
+                alert('Quantity add');
+                event.target.reset()
+            })
+    }
+    const deleverItem = () => {
+        let oldQuantity = inventory.quantity;
+        // let newQuantity = quantityRef.current.value;
+        let quantity = parseInt(oldQuantity) - 1
+        if (!quantity) {
+            return alert('Please enter a valid quantity')
+        }
+        let newCount = ''
+        setModifiedCount(newCount)
+        const add = { quantity };
+        const url = `http://localhost:5000/inventory/${inventoryId}`
+        fetch(url, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(add)
+        })
+            .then(res => res.json())
+            .then(data => {
+                setModifiedCount(data.modifiedCount)
+                alert('Item Deleverd');
+            })
+    }
 
 
     return (
@@ -29,11 +81,15 @@ const InventoryDetails = () => {
                         <p>Quantity: {inventory.quantity}</p>
                     </div>
                     {/* <Link className='bg-orange-300 p-2 w-full m-auto mt-8 rounded-lg font-bold' to='/itemsupdate'>Update</Link> */}
-                    <button className='bg-orange-300 p-2 w-1/2 block m-auto mt-8 rounded-lg font-bold'>Delevered</button>
+                    <button onClick={deleverItem} className='bg-orange-300 p-2 w-1/2 block m-auto mt-8 rounded-lg font-bold'>Delevered</button>
                 </div>
             </div>
             <div>
-                <AddQuantity></AddQuantity>
+                <h2 className='text-3xl font-bold mt-8 text-center'>Restock The Item</h2>
+                <form onSubmit={handleQuantity}>
+                    <input ref={quantityRef} className='block m-auto bg-gray-300 w-3/4 mt-4 p-2' type="number" placeholder='Enter Your Quantity' />
+                    <input className='block m-auto bg-orange-300 rounded-lg font-bold w-1/2 mt-4 p-2' type="submit" value="Add Quantity" />
+                </form>
             </div>
             <div>
                 <h2 className='text-3xl font-bold mt-8 text-center'>Manage Items</h2>
