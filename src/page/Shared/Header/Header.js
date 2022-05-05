@@ -25,6 +25,7 @@ const Header = () => {
                     user
                         ? <div className='flex justify-end text-xl  font-bold mr-16'>
                             <Link className='mt-3 mr-8' to='/'>Home</Link>
+                            <Link className='mt-3 mr-8' to='/blog'>Blog</Link>
                             <Link className='mt-3 mr-8' to='/manageitems'>Manage Items</Link>
                             <Link className='mt-3 mr-8' to='/additem'>Add Item</Link>
                             <Link className='mt-3 mr-8' to='/myitems'>My Item</Link>
@@ -32,6 +33,7 @@ const Header = () => {
                         </div>
                         : <div className='flex justify-end text-xl font-bold mr-16'>
                             <Link className='mt-3 mr-8' to='/'>Home</Link>
+                            <Link className='mt-3 mr-8' to='/blog'>Blog</Link>
                             <Link className='mt-3 mr-8' to='/login'>Log In</Link>
                         </div>
                 }

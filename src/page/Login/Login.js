@@ -13,11 +13,15 @@ const Login = () => {
     const from = location.state?.from?.pathname || '/'
 
     const [sendPasswordResetEmail] = useSendPasswordResetEmail(auth);
-    const [signInWithEmailAndPassword, user, error] = useSignInWithEmailAndPassword(auth);
+    const [signInWithEmailAndPassword, user, error, loading] = useSignInWithEmailAndPassword(auth);
     const navigate = useNavigate()
     if (user) {
         navigate(from, { replace: true });
     }
+    // if (loading) {
+    //     <svg class="animate-spin h-5 w-5 mr-3 ..." viewBox="0 0 24 24">
+    //     </svg>
+    // }
     let errorMassage;
     if (error) {
         errorMassage = <p className='text-red-600 font-bold text-center mt-2'>Please Enter Correct Email and Password</p>
