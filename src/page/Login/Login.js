@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import SocialLogin from '../SocialLogin/SocialLogin';
+const axios = require('axios');
 
 const Login = () => {
     const emailRef = useRef('');
@@ -13,25 +14,23 @@ const Login = () => {
     const from = location.state?.from?.pathname || '/'
 
     const [sendPasswordResetEmail] = useSendPasswordResetEmail(auth);
-    const [signInWithEmailAndPassword, user, error, loading] = useSignInWithEmailAndPassword(auth);
+    const [signInWithEmailAndPassword, user, error] = useSignInWithEmailAndPassword(auth);
     const navigate = useNavigate()
     if (user) {
-        navigate(from, { replace: true });
+        // navigate(from, { replace: true });
     }
-    // if (loading) {
-    //     <svg class="animate-spin h-5 w-5 mr-3 ..." viewBox="0 0 24 24">
-    //     </svg>
-    // }
     let errorMassage;
     if (error) {
         errorMassage = <p className='text-red-600 font-bold text-center mt-2'>Please Enter Correct Email and Password</p>
     }
-    const handleLogin = event => {
+    const handleLogin = async event => {
         event.preventDefault();
         const email = emailRef.current.value;
         const password = passwordRef.current.value;
-        console.log(email, password)
-        signInWithEmailAndPassword(email, password)
+        await signInWithEmailAndPassword(email, password);
+        const { data } = await axios.post('http://localhost:5000/login', { email });
+        localStorage.setItem('accessToken', data.accessToken);
+        navigate(from, { replace: true });
     }
     const forgotPassword = async () => {
         let collectEmail = prompt('Please Enter Your Email');

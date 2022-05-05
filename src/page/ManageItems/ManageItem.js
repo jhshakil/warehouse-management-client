@@ -2,7 +2,6 @@ import React from 'react';
 
 const ManageItem = ({ item, handleDelete }) => {
     const { _id, name, description, supplier_name, picture, balance, quantity, sold } = item;
-    console.log(quantity)
     return (
         <tr>
             <th className='border-2 border-black border-solid p-4'>{_id}</th>

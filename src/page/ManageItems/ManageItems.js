@@ -30,7 +30,7 @@ const ManageItems = () => {
             <h1 className='text-4xl font-bold text-center m-16'>My Inventory Items : {inventorys.length}</h1>
             <Link className='bg-orange-400 block m-auto p-2 w-44 rounded-lg text-center font-bold mb-4' to='/additem'>Add Item</Link>
             <div className='flex justify-center'>
-                <table className='border-2 border-black border-solid'>
+                <table className='border-2 border-black border-solid m-4'>
                     <thead>
                         <tr>
                             <th className='border-2 border-black border-solid p-4'>Id</th>

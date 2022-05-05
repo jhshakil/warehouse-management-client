@@ -21,7 +21,6 @@ const Registration = () => {
         event.preventDefault();
         const email = emailRef.current.value;
         const password = passwordRef.current.value;
-        console.log(email, password)
         createUserWithEmailAndPassword(email, password)
     }
     return (

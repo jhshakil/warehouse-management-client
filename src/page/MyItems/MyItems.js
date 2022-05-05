@@ -8,9 +8,14 @@ const MyItems = () => {
     const [user] = useAuthState(auth);
     const [inventorys, setInventorys] = useState([]);
     useEffect(() => {
-        const email = user?.email;
+        const email = user.email;
         const url = `http://localhost:5000/myitems?email=${email}`
-        fetch(url)
+        fetch(url, {
+            method: 'GET',
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('accessToken')}`
+            }
+        })
             .then(res => res.json())
             .then(data => setInventorys(data))
     }, [user])
