@@ -1,9 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import AddQuantity from '../HandleQuantity/AddQuantity';
 
 const InventoryDetails = () => {
     const { inventoryId } = useParams()
-    const quantityRef = useRef('');
+
     const [inventory, setInventory] = useState({});
     useEffect(() => {
         const url = `http://localhost:5000/inventory/${inventoryId}`;
@@ -12,42 +13,10 @@ const InventoryDetails = () => {
             .then(data => setInventory(data))
     }, [inventory])
 
-    const handleQuantity = event => {
-        event.preventDefault();
-        const quantity = quantityRef.current.value;
-        const add = { quantity };
 
-        // fetch('http://localhost:5000/user', {
-        //     method: 'POST',
-        //     headers: {
-        //         'content-type': 'application/json'
-        //     },
-        //     body: JSON.stringify(user)
-        // })
-        //     .then(res => res.json())
-        //     .then(data => {
-        //         console.log(data);
-        //         alert('Data is send')
-        //         event.target.reset()
-        //     })
-        const url = `http://localhost:5000/inventory/${inventoryId}`
-        fetch(url, {
-            method: 'PUT',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(add)
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-                alert('Quantity add');
-                event.target.reset()
-            })
-    }
     return (
-        <div>
-            <div className='w-1/4 block m-auto p-4 mt-8 border border-solid border-black rounded-lg'>
+        <div className='grid grid-cols-3 m-4'>
+            <div className='w-full p-4 mt-8 border border-solid border-black rounded-lg'>
                 <div>
                     <img className='w-full rounded-lg' src={inventory.picture} alt="" />
                 </div>
@@ -64,15 +33,11 @@ const InventoryDetails = () => {
                 </div>
             </div>
             <div>
-                <h2 className='text-3xl font-bold mt-8 text-center'>Restock The Item</h2>
-                <form onSubmit={handleQuantity}>
-                    <input ref={quantityRef} className='block m-auto bg-gray-300 w-1/4 mt-4 p-2' type="number" placeholder='Enter Your Quantity' />
-                    <input className='block m-auto bg-orange-300 font-bold w-1/4 mt-4 p-2' type="submit" value="Add Quantity" />
-                </form>
+                <AddQuantity></AddQuantity>
             </div>
             <div>
                 <h2 className='text-3xl font-bold mt-8 text-center'>Manage Items</h2>
-                <Link className='block m-auto text-center bg-orange-300 font-bold w-1/4 mt-4 p-2' to='/manageitems'>Click Here</Link>
+                <Link className='block m-auto text-center bg-orange-300 rounded-lg font-bold w-1/2 mt-4 p-2' to='/manageitems'>Click Here</Link>
             </div>
         </div>
     );

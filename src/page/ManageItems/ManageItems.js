@@ -5,6 +5,7 @@ import ManageItem from './ManageItem';
 const ManageItems = () => {
     const [inventorys, setInventorys] = useState([]);
     useEffect(() => {
+        // console.log(inventorys)
         fetch('http://localhost:5000/inventory')
             .then(res => res.json())
             .then(data => setInventorys(data))
@@ -43,8 +44,11 @@ const ManageItems = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {
+                        {/* {
                             inventorys.map(item => <ManageItem key={item._id} item={item} handleDelete={handleDelete}></ManageItem>)
+                        } */}
+                        {
+                            inventorys?.map(item => <ManageItem key={item._id} item={item} handleDelete={handleDelete}></ManageItem>)
                         }
                     </tbody>
                 </table>
