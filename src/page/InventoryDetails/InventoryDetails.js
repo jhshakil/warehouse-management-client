@@ -67,7 +67,7 @@ const InventoryDetails = () => {
 
 
     return (
-        <div className='grid grid-cols-3 m-4'>
+        <div className='grid grid-cols-1 md:grid-cols-3 m-4'>
             <div className='w-full p-4 mt-8 border border-solid border-black rounded-lg'>
                 <div>
                     <img className='w-full rounded-lg' src={inventory.picture} alt="" />
@@ -80,7 +80,6 @@ const InventoryDetails = () => {
                         <p>Balance: {inventory.balance}</p>
                         <p>Quantity: {inventory.quantity}</p>
                     </div>
-                    {/* <Link className='bg-orange-300 p-2 w-full m-auto mt-8 rounded-lg font-bold' to='/itemsupdate'>Update</Link> */}
                     <button onClick={deleverItem} className='bg-orange-300 p-2 w-1/2 block m-auto mt-8 rounded-lg font-bold'>Delevered</button>
                 </div>
             </div>

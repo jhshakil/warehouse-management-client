@@ -1,16 +1,11 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 
-const Inventory = ({ item }) => {
+const ManageItemMobile = ({ item, handleDelete }) => {
     const { _id, name, description, supplier_name, picture, balance, quantity, sold } = item;
-    const navigate = useNavigate()
-    const inventoryDetails = id => {
-        navigate(`inventory/${id}`)
-    }
     return (
-        <div>
+        <div className='block md:hidden w-full p-4 mt-8'>
             <div>
-                <img className='h-64 w-96' src={picture} alt="" />
+                <img className='w-full' src={picture} alt="" />
             </div>
             <div>
                 <h2 className='text-2xl font-bold text-center mt-4 mb-4'>{name}</h2>
@@ -20,10 +15,10 @@ const Inventory = ({ item }) => {
                     <p>Balance: {balance}</p>
                     <p>Quantity: {quantity}</p>
                 </div>
-                <button onClick={() => inventoryDetails(_id)} className='bg-orange-300 p-2 w-1/4 block m-auto mt-8 rounded-lg font-bold'>Update</button>
+                <button onClick={() => handleDelete(_id)} className='bg-orange-300 p-2 w-1/4 block m-auto mt-8 rounded-lg font-bold'>Delete</button>
             </div>
         </div>
     );
 };
 
-export default Inventory;
+export default ManageItemMobile;

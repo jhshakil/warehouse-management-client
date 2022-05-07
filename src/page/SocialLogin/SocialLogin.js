@@ -2,6 +2,7 @@ import React from 'react';
 import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
+const axios = require('axios');
 
 const SocialLogin = () => {
     const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
@@ -17,9 +18,17 @@ const SocialLogin = () => {
     if (error) {
         errorMassage = <p className='text-red-600 font-bold text-center mt-2'>Please Log In</p>
     }
-    if (user) {
-        navigate(from, { replace: true });
+    async function userCollect() {
+        if (user) {
+            // navigate(from, { replace: true });
+            const email = user.user.email;
+            console.log(user.user.email)
+            const { data } = await axios.post('http://localhost:5000/login', { email });
+            localStorage.setItem('accessToken', data.accessToken);
+            navigate(from, { replace: true });
+        }
     }
+    userCollect();
     return (
         <div>
             <button onClick={() => signInWithGoogle()} className='block m-auto p-3 bg-orange-300 rounded-lg mt-8 '>Log in with Google</button>

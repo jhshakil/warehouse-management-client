@@ -12,7 +12,7 @@ const Introduction = () => {
                     <img className='w-full' src='introduction.jpg' alt="" />
                 </div>
             </div>
-            <div className='grid grid-cols-3 gap-4 m-8 text-lg md:text-2xl font-bold'>
+            <div className='grid grid-cols-3 gap-4 md:m-8 mt-4 text-sm md:text-xl font-bold'>
                 <h3>Car Stock: 2053</h3>
                 <h3>Total Dealer: 50</h3>
                 <h3>Total Customer: 500</h3>
