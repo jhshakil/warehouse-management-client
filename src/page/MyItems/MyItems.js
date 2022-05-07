@@ -1,15 +1,34 @@
+import { signOut } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import MyItem from './MyItem';
 
 const MyItems = () => {
     const [user] = useAuthState(auth);
+    const navigate = useNavigate()
     const [inventorys, setInventorys] = useState([]);
     useEffect(() => {
         const email = user.email;
         const url = `http://localhost:5000/myitems?email=${email}`
+        // try {
+        //     fetch(url, {
+        //         method: 'GET',
+        //         headers: {
+        //             authorization: `Bearer ${localStorage.getItem('accessToken')}`
+        //         }
+        //     })
+        //         .then(res => res.json())
+        //         .then(data => setInventorys(data))
+        // }
+        // catch (error) {
+        //     console.log(error.massage)
+        //     if (error.response.status === 401 || error.response.status === 403) {
+        //         signOut(auth);
+        //         navigate('/login')
+        //     }
+        // }
         fetch(url, {
             method: 'GET',
             headers: {
