@@ -17,11 +17,7 @@ const Login = () => {
     const [signInWithEmailAndPassword, user, error] = useSignInWithEmailAndPassword(auth);
     const navigate = useNavigate()
     if (user) {
-        // navigate(from, { replace: true });
-    }
-    let errorMassage;
-    if (error) {
-        errorMassage = <p className='text-red-600 font-bold text-center mt-2'>Please Enter Correct Email and Password</p>
+        navigate(from, { replace: true });
     }
     const handleLogin = async event => {
         event.preventDefault();
@@ -30,7 +26,12 @@ const Login = () => {
         await signInWithEmailAndPassword(email, password);
         const { data } = await axios.post('http://localhost:5000/login', { email });
         localStorage.setItem('accessToken', data.accessToken);
-        navigate(from, { replace: true });
+        // navigate(from, { replace: true });
+    }
+    let errorMassage;
+    if (error) {
+        console.log(error)
+        errorMassage = <p className='text-red-600 font-bold text-center mt-2'>Please Enter Correct Email and Password</p>
     }
     const forgotPassword = async () => {
         let collectEmail = prompt('Please Enter Your Email');

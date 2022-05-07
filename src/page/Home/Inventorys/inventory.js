@@ -17,7 +17,7 @@ const Inventory = ({ item }) => {
                 <p>{description}</p>
                 <h3 className='text-lg font-bold'>Supplier: {supplier_name}</h3>
                 <div className='grid grid-cols-2 gap-6'>
-                    <p>Balance: {balance}</p>
+                    <p>Balance: {balance}$</p>
                     <p>Quantity: {quantity}</p>
                 </div>
                 <button onClick={() => inventoryDetails(_id)} className='bg-orange-300 p-2 w-1/4 block m-auto mt-8 rounded-lg font-bold'>Update</button>

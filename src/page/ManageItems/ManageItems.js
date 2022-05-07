@@ -41,7 +41,9 @@ const ManageItems = () => {
                             <th className='border-2 border-black border-solid p-4'>Supplier Name</th>
                             <th className='border-2 border-black border-solid p-4'>Quantity</th>
                             <th className='border-2 border-black border-solid p-4'>Balance</th>
+                            <th className='border-2 border-black border-solid p-4'>Stock</th>
                             <th className='border-2 border-black border-solid p-4'>Delete</th>
+                            <th className='border-2 border-black border-solid p-4'>Update</th>
                         </tr>
                     </thead>
                     <tbody>

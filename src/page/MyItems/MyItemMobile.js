@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ManageItemMobile = ({ item, handleDelete }) => {
+const MyItemMobile = ({ item, handleDelete }) => {
     const { _id, name, description, supplier_name, picture, balance, quantity, stock } = item;
     return (
         <div className='block md:hidden w-full p-4 mt-8'>
@@ -22,4 +22,4 @@ const ManageItemMobile = ({ item, handleDelete }) => {
     );
 };
 
-export default ManageItemMobile;
+export default MyItemMobile;

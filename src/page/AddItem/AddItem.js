@@ -31,6 +31,7 @@ const AddItem = () => {
             <input className='block border-2 border-solid border-black mt-4 rounded p-2 bg-gray-200 w-72 m-auto' placeholder='Supplier Name' {...register("supplier_name", { required: true, maxLength: 20 })} />
             <input className='block border-2 border-solid border-black mt-4 rounded p-2 bg-gray-200 w-72 m-auto' placeholder='Balance' type="number" {...register("balance", { required: true })} />
             <input className='block border-2 border-solid border-black mt-4 rounded p-2 bg-gray-200 w-72 m-auto' placeholder='Quantity' type="number" {...register("quantity", { required: true })} />
+            <input className='block border-2 border-solid border-black mt-4 rounded p-2 bg-gray-200 w-72 m-auto' placeholder='Stock' value='In Stock' readOnly {...register("stock", { required: true })} />
             <input className='block border-2 border-solid border-black mt-4 rounded p-2 bg-gray-200 w-72 m-auto' placeholder='Photo Url' type="text" {...register("picture", { required: true })} />
             <input className='block border-2 border-solid border-black mt-4 rounded p-2 bg-gray-200 w-72 m-auto' type="submit" value='Add Item' />
         </form>

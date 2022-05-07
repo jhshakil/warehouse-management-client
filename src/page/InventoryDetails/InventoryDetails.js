@@ -11,11 +11,11 @@ const InventoryDetails = () => {
             .then(res => res.json())
             .then(data => setInventory(data))
     }, [modifiedCount])
-
     // add quantity 
     const quantityRef = useRef('');
     const handleQuantity = event => {
         event.preventDefault();
+        let stock = 'In Stock'
         let oldQuantity = inventory.quantity;
         let newQuantity = quantityRef.current.value;
         let quantity = parseInt(oldQuantity) + parseInt(newQuantity)
@@ -24,7 +24,7 @@ const InventoryDetails = () => {
         }
         let newCount = ''
         setModifiedCount(newCount)
-        const add = { quantity };
+        const add = { quantity, stock };
         const url = `http://localhost:5000/inventory/${inventoryId}`
         fetch(url, {
             method: 'PUT',
@@ -42,14 +42,20 @@ const InventoryDetails = () => {
     }
     const deleverItem = () => {
         let oldQuantity = inventory.quantity;
+        let stock = 'In Stock'
         // let newQuantity = quantityRef.current.value;
         let quantity = parseInt(oldQuantity) - 1
-        if (!quantity) {
-            return alert('Please enter a valid quantity')
+        if (quantity === 0) {
+            stock = 'Sold'
+        }
+        if (quantity < 0) {
+            quantity = 0;
+            return alert('No item available');
+
         }
         let newCount = ''
         setModifiedCount(newCount)
-        const add = { quantity };
+        const add = { quantity, stock };
         const url = `http://localhost:5000/inventory/${inventoryId}`
         fetch(url, {
             method: 'PUT',
@@ -76,9 +82,10 @@ const InventoryDetails = () => {
                     <h2 className='text-2xl font-bold text-center mt-4 mb-4'>{inventory.name}</h2>
                     <p>{inventory.description}</p>
                     <h3 className='text-lg font-bold'>Supplier: {inventory.supplier_name}</h3>
-                    <div className='grid grid-cols-2 gap-6'>
-                        <p>Balance: {inventory.balance}</p>
+                    <div className='grid grid-cols-3 gap-6'>
+                        <p>Balance: {inventory.balance}$</p>
                         <p>Quantity: {inventory.quantity}</p>
+                        <p>Stock: {inventory.stock}</p>
                     </div>
                     <button onClick={deleverItem} className='bg-orange-300 p-2 w-1/2 block m-auto mt-8 rounded-lg font-bold'>Delevered</button>
                 </div>
