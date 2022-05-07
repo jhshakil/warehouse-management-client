@@ -2,12 +2,12 @@ import React from 'react';
 
 const Banner = () => {
     return (
-        <div className='grid grid-cols-2'>
-            <div className='bg-black text-white pt-24 pl-16'>
-                <h1 className='text-6xl font-bold text-red-700 mb-8'>This is Car Dealer Site</h1>
+        <div className='flex flex-col md:grid md:grid-cols-2'>
+            <div className='bg-black text-white p-6 md:pt-24 md:pl-16 md:order-first order-last'>
+                <h1 className='md:text-6xl text-2xl font-bold text-red-700 mb-4 md:mb-8'>This is Car Dealer Site</h1>
                 <p className='text-lg'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia laborum autem vitae et iusto totam aliquam impedit, eligendi sapiente, maxime esse. Molestias quisquam facilis voluptate ab provident corporis. Dolor vero error et!</p>
             </div>
-            <div>
+            <div className='order-first md:order-last'>
                 <img src="banner.jpg" alt="" />
             </div>
         </div>
