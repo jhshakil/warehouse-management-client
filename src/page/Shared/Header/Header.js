@@ -31,18 +31,18 @@ const Header = () => {
                 {/* <Link className='mt-3' to='logout'>Log Out</Link> */}
                 {
                     user
-                        ? <div className={`block md:flex md:justify-end md:text-xl  font-bold md:mr-16 ${open ? 'block md:flex' : 'hidden md:flex'}`}>
-                            <Link className='block md:mt-3 md:mr-8' to='/'>Home</Link>
-                            <Link className='block md:mt-3 md:mr-8' to='/blog'>Blog</Link>
-                            <Link className='block md:mt-3 md:mr-8' to='/manageitems'>Manage Items</Link>
-                            <Link className='block md:mt-3 md:mr-8' to='/additem'>Add Item</Link>
-                            <Link className='block md:mt-3 md:mr-8' to='/myitems'>My Item</Link>
-                            <Link onClick={handleLogout} className='block md:mt-3 md:mr-8' to='/login'>Log Out</Link>
+                        ? <div className={`flex justify-center md:justify-end md:text-xl  font-bold md:mr-16 ${open ? 'flex-col md:flex-row' : 'hidden md:flex'}`}>
+                            <Link className='block m-auto md:mt-3 md:mr-8' to='/'>Home</Link>
+                            <Link className='block m-auto md:mt-3 md:mr-8' to='/blog'>Blog</Link>
+                            <Link className='block m-auto md:mt-3 md:mr-8' to='/manageitems'>Manage Items</Link>
+                            <Link className='block m-auto md:mt-3 md:mr-8' to='/additem'>Add Item</Link>
+                            <Link className='block m-auto md:mt-3 md:mr-8' to='/myitems'>My Item</Link>
+                            <Link onClick={handleLogout} className='block m-auto md:mt-3 md:mr-8' to='/login'>Log Out</Link>
                         </div>
-                        : <div className={`block md:flex md:justify-end md:text-xl  font-bold md:mr-16 ${open ? 'block md:flex' : 'hidden md:flex'}`}>
-                            <Link className='mt-3 mr-8' to='/'>Home</Link>
-                            <Link className='mt-3 mr-8' to='/blog'>Blog</Link>
-                            <Link className='mt-3 mr-8' to='/login'>Log In</Link>
+                        : <div className={`flex justify-center md:justify-end md:text-xl  font-bold md:mr-16 ${open ? 'flex-col md:flex-row' : 'hidden md:flex'}`}>
+                            <Link className='block m-auto md:mt-3 md:mr-8' to='/'>Home</Link>
+                            <Link className='block m-auto md:mt-3 md:mr-8' to='/blog'>Blog</Link>
+                            <Link className='block m-auto md:mt-3 md:mr-8' to='/login'>Log In</Link>
                         </div>
                 }
             </div>

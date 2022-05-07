@@ -4,14 +4,14 @@ import { Link } from 'react-router-dom';
 const Manage = () => {
     return (
         <div className='ml-8 mr-8 mt-16'>
-            <div className='grid grid-cols-3 h-96'>
-                <div className=''>
-                    <img className='h-96 w-full' src='manage.jpg' alt="" />
+            <div className='grid grid-cols-1 md:grid-cols-3'>
+                <div className='md:order-first order-last'>
+                    <img className='w-full mt-2' src='manage.jpg' alt="" />
                 </div>
-                <div className='col-span-2 p-16'>
+                <div className='col-span-2 p-2 md:p-16 order-first md:order-last'>
                     <h1 className='text-3xl text-red-600 font-bold text-center mb-8'>Manage Your Items</h1>
-                    <p className='text-lg'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, corrupti doloribus fuga, debitis eius saepe atque mollitia possimus eveniet fugiat nemo natus quam alias porro tempora. Blanditiis pariatur minus maiores excepturi reprehenderit!</p>
-                    <Link to='/manageitems' className='bg-orange-400 block m-auto p-2 w-1/4 rounded-lg text-center font-bold mt-4'>Click Here</Link>
+                    <p className='text-lg text-center md:text-left'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, corrupti doloribus fuga, debitis eius saepe atque mollitia possimus eveniet fugiat nemo natus quam alias porro tempora. Blanditiis pariatur minus maiores excepturi reprehenderit!</p>
+                    <Link to='/manageitems' className='bg-orange-400 block m-auto p-2  w-1/2 md:w-1/4 rounded-lg text-center font-bold mt-4'>Click Here</Link>
                 </div>
 
             </div>
