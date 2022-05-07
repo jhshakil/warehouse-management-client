@@ -1,3 +1,4 @@
+import { RefreshIcon } from '@heroicons/react/outline';
 import React from 'react';
 import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -12,7 +13,7 @@ const SocialLogin = () => {
     const from = location.state?.from?.pathname || '/'
     const navigate = useNavigate()
     if (loading) {
-        return <p>Loading...</p>
+        return <RefreshIcon className="animate-spin w-40"></RefreshIcon>
     }
     let errorMassage;
     if (error) {

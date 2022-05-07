@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import SocialLogin from '../SocialLogin/SocialLogin';
+import { RefreshIcon } from '@heroicons/react/outline';
 const axios = require('axios');
 
 const Login = () => {
@@ -14,11 +15,15 @@ const Login = () => {
     const from = location.state?.from?.pathname || '/'
 
     const [sendPasswordResetEmail] = useSendPasswordResetEmail(auth);
-    const [signInWithEmailAndPassword, user, error] = useSignInWithEmailAndPassword(auth);
+    const [signInWithEmailAndPassword, user, error, loading] = useSignInWithEmailAndPassword(auth);
     const navigate = useNavigate()
+    if (loading) {
+        return <RefreshIcon className="animate-spin w-40"></RefreshIcon>
+    }
     if (user) {
         navigate(from, { replace: true });
     }
+
     const handleLogin = async event => {
         event.preventDefault();
         const email = emailRef.current.value;

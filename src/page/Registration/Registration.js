@@ -1,3 +1,4 @@
+import { RefreshIcon } from '@heroicons/react/outline';
 import React, { useRef } from 'react';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
@@ -12,8 +13,13 @@ const Registration = () => {
     const location = useLocation()
     const from = location.state?.from?.pathname || '/'
 
-    const [createUserWithEmailAndPassword, user] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+    const [createUserWithEmailAndPassword, user, loading] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
     const navigate = useNavigate();
+    if (loading) {
+        if (loading) {
+            return <RefreshIcon className="animate-spin w-40"></RefreshIcon>
+        }
+    }
     if (user) {
         navigate(from, { replace: true });
     }

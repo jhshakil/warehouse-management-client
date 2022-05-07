@@ -13,26 +13,40 @@ import AddItem from './page/AddItem/AddItem';
 import MyItem from './page/MyItems/MyItems';
 import NotFound from './page/NotFound/NotFound';
 import Blog from './page/Blog/Blog';
+import { useEffect, useState } from 'react';
+import { BounceLoader } from 'react-spinners';
 
 function App() {
+  const [loading, setLoading] = useState(false);
+  useEffect(() => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000)
+  }, [])
   return (
     <div className=''>
-      <Header></Header>
-      <Routes>
-        <Route path='/' element={<Home></Home>}>Home</Route>
-        <Route path='/home' element={<Home></Home>}>Home</Route>
-        <Route path='/login' element={<Login></Login>}>Log In</Route>
-        <Route path='/registration' element={<Registration></Registration>}>Registation</Route>
-        <Route path='/itemsupdate' element={<ItemsUpdate></ItemsUpdate>}>Items Update</Route>
-        <Route path='/inventory/:inventoryId' element={<RequireAuth><InventoryDetails></InventoryDetails></RequireAuth>}>Inventory</Route>
-        <Route path='/manageitems' element={<RequireAuth><ManageItems></ManageItems></RequireAuth>}>Manage Items</Route>
-        <Route path='/additem' element={<RequireAuth><AddItem></AddItem></RequireAuth>}>Add Item</Route>
-        <Route path='/myitems' element={<RequireAuth><MyItem></MyItem></RequireAuth>}>My Item</Route>
-        <Route path='/blog' element={<Blog></Blog>}>Blog</Route>
-        <Route path='*' element={<NotFound></NotFound>}>Not Found</Route>
-      </Routes>
+      {
+        loading ? <div className='flex justify-center items-center'><BounceLoader color={'#F5A623'} loading={loading} size={100} /></div> :
+          <div>
+            <Header></Header>
+            <Routes>
+              <Route path='/' element={<Home></Home>}>Home</Route>
+              <Route path='/home' element={<Home></Home>}>Home</Route>
+              <Route path='/login' element={<Login></Login>}>Log In</Route>
+              <Route path='/registration' element={<Registration></Registration>}>Registation</Route>
+              <Route path='/itemsupdate' element={<ItemsUpdate></ItemsUpdate>}>Items Update</Route>
+              <Route path='/inventory/:inventoryId' element={<RequireAuth><InventoryDetails></InventoryDetails></RequireAuth>}>Inventory</Route>
+              <Route path='/manageitems' element={<RequireAuth><ManageItems></ManageItems></RequireAuth>}>Manage Items</Route>
+              <Route path='/additem' element={<RequireAuth><AddItem></AddItem></RequireAuth>}>Add Item</Route>
+              <Route path='/myitems' element={<RequireAuth><MyItem></MyItem></RequireAuth>}>My Item</Route>
+              <Route path='/blog' element={<Blog></Blog>}>Blog</Route>
+              <Route path='*' element={<NotFound></NotFound>}>Not Found</Route>
+            </Routes>
 
-      <Footer></Footer>
+            <Footer></Footer>
+          </div>
+      }
     </div>
   );
 }
