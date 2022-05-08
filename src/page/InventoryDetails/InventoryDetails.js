@@ -87,7 +87,7 @@ const InventoryDetails = () => {
                         <p>Quantity: {inventory.quantity}</p>
                         <p>Stock: {inventory.stock}</p>
                     </div>
-                    <button onClick={deleverItem} className='bg-orange-300 p-2 w-1/2 block m-auto mt-8 rounded-lg font-bold'>Delevered</button>
+                    <button onClick={deleverItem} className='bg-orange-300 p-2 w-1/2 block m-auto mt-8 rounded-lg font-bold'>Delivered</button>
                 </div>
             </div>
             <div>

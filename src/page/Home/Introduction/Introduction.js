@@ -6,7 +6,7 @@ const Introduction = () => {
             <div className='grid md:grid-cols-3 grid-cols-1'>
                 <div className='col-span-2 md:col-span-2 p-2 md:p-16'>
                     <h1 className='text-3xl font-bold text-center mb-8'>What we can do</h1>
-                    <p className='text-center md:text-left mb-4 text-lg'>This is a wirehouse and we manage huge quantity of products. We verify our both clint and dealer. We provied better service and support</p>
+                    <p className='text-center md:text-left mb-4 text-lg'>This is a warehouse and we manage huge quantity of products. We verify our both clint and dealer. We provied better service and support</p>
                 </div>
                 <div className=''>
                     <img className='w-full' src='introduction.jpg' alt="" />
