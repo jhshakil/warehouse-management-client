@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 const AddQuantity = () => {
     // const [inventorys, setInventorys] = useState({});
     // useEffect(() => {
-    //     const url = `http://localhost:5000/inventory/${inventoryId}`;
+    //     const url = `https://powerful-depths-51836.herokuapp.com/inventory/${inventoryId}`;
     //     fetch(url)
     //         .then(res => res.json())
     //         .then(data => console.log(data.quantity))
@@ -19,7 +19,7 @@ const AddQuantity = () => {
             return alert('Please enter a valid quantity')
         }
         const add = { quantity };
-        const url = `http://localhost:5000/inventory/${inventoryId}`
+        const url = `https://powerful-depths-51836.herokuapp.com/inventory/${inventoryId}`
         fetch(url, {
             method: 'PUT',
             headers: {

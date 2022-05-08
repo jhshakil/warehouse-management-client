@@ -12,7 +12,7 @@ const MyItems = () => {
     const [inventorys, setInventorys] = useState([]);
     useEffect(() => {
         const email = user.email;
-        const url = `http://localhost:5000/myitems?email=${email}`
+        const url = `https://powerful-depths-51836.herokuapp.com/myitems?email=${email}`
         // try {
         //     fetch(url, {
         //         method: 'GET',
@@ -42,7 +42,7 @@ const MyItems = () => {
     const handleDelete = id => {
         const proceed = window.confirm('Delete This Item')
         if (proceed) {
-            const url = `http://localhost:5000/inventory/${id}`;
+            const url = `https://powerful-depths-51836.herokuapp.com/inventory/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })

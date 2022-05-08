@@ -9,7 +9,7 @@ const AddItem = () => {
     const [user] = useAuthState(auth);
     const navigate = useNavigate();
     const onSubmit = data => {
-        const url = 'http://localhost:5000/inventory'
+        const url = 'https://powerful-depths-51836.herokuapp.com/inventory'
         fetch(url, {
             method: 'POST',
             headers: {

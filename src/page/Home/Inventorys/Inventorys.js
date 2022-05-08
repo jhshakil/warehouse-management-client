@@ -5,7 +5,7 @@ import Inventory from './inventory';
 const Inventorys = () => {
     const [inventorys, setInventorys] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/inventory')
+        fetch('https://powerful-depths-51836.herokuapp.com/inventory')
             .then(res => res.json())
             .then(data => setInventorys(data))
     }, [])

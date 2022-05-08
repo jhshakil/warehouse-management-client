@@ -6,7 +6,7 @@ const InventoryDetails = () => {
     const [modifiedCount, setModifiedCount] = useState('')
     const [inventory, setInventory] = useState({});
     useEffect(() => {
-        const url = `http://localhost:5000/inventory/${inventoryId}`;
+        const url = `https://powerful-depths-51836.herokuapp.com/inventory/${inventoryId}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setInventory(data))
@@ -25,7 +25,7 @@ const InventoryDetails = () => {
         let newCount = ''
         setModifiedCount(newCount)
         const add = { quantity, stock };
-        const url = `http://localhost:5000/inventory/${inventoryId}`
+        const url = `https://powerful-depths-51836.herokuapp.com/inventory/${inventoryId}`
         fetch(url, {
             method: 'PUT',
             headers: {
@@ -56,7 +56,7 @@ const InventoryDetails = () => {
         let newCount = ''
         setModifiedCount(newCount)
         const add = { quantity, stock };
-        const url = `http://localhost:5000/inventory/${inventoryId}`
+        const url = `https://powerful-depths-51836.herokuapp.com/inventory/${inventoryId}`
         fetch(url, {
             method: 'PUT',
             headers: {
