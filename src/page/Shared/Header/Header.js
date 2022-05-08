@@ -12,7 +12,7 @@ const Header = () => {
         signOut(auth)
     }
     return (
-        <div className='md:grid md:grid-cols-3 bg-orange-200 md:p-3'>
+        <div className='md:grid md:grid-cols-3 bg-orange-200 md:p-3 sticky top-0'>
             <div className='flex justify-around md:p-0 p-2'>
                 <div className='md:text-5xl text-3xl md:ml-16 font-bold'>
                     <h1><Link to='/'>Car Dealer</Link></h1>
