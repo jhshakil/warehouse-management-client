@@ -47,9 +47,6 @@ const ManageItems = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {/* {
-                            inventorys.map(item => <ManageItem key={item._id} item={item} handleDelete={handleDelete}></ManageItem>)
-                        } */}
                         {
                             inventorys?.map(item => <ManageItem key={item._id} item={item} handleDelete={handleDelete}></ManageItem>)
                         }

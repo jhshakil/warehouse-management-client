@@ -9,16 +9,20 @@ const axios = require('axios');
 const Login = () => {
     const emailRef = useRef('');
     const passwordRef = useRef('')
+    let errorMassage;
 
     // set location 
     const location = useLocation()
     const from = location.state?.from?.pathname || '/'
-
     const [sendPasswordResetEmail] = useSendPasswordResetEmail(auth);
     const [signInWithEmailAndPassword, user, error, loading] = useSignInWithEmailAndPassword(auth);
     const navigate = useNavigate()
-    if (loading) {
-        return <RefreshIcon className="animate-spin w-40"></RefreshIcon>
+    // if (loading) {
+    //     return <RefreshIcon className="animate-spin w-40 duration-75"></RefreshIcon>
+    // }
+    if (error) {
+        // console.log(error)
+        errorMassage = <p className='text-red-600 font-bold text-center mt-2'>Please Enter Correct Email and Password</p>
     }
     if (user) {
         navigate(from, { replace: true });
@@ -33,27 +37,22 @@ const Login = () => {
         localStorage.setItem('accessToken', data.accessToken);
         // navigate(from, { replace: true });
     }
-    let errorMassage;
-    if (error) {
-        console.log(error)
-        errorMassage = <p className='text-red-600 font-bold text-center mt-2'>Please Enter Correct Email and Password</p>
-    }
     const forgotPassword = async () => {
         let collectEmail = prompt('Please Enter Your Email');
         await sendPasswordResetEmail(collectEmail)
         alert('Send Email')
     }
     return (
-        <div className='w-3/4 m-auto'>
+        <div className='w-full md:w-3/4 m-auto'>
             <h1 className='text-3xl font-bold text-center mt-8'>Log In</h1>
             <SocialLogin></SocialLogin>
             <form onSubmit={handleLogin} className='p-8'>
                 <input ref={emailRef} className='block m-auto bg-gray-300 w-1/2 mt-4 p-2' type="email" placeholder='Enter Your Email' />
                 <input ref={passwordRef} className='block m-auto bg-gray-300 w-1/2 mt-4 p-2' type="password" placeholder='Enter Your Password' />
-                <input className='block m-auto bg-orange-300 w-1/4 mt-4 p-2' type="submit" value="Log in" />
-
+                <input className='block m-auto bg-orange-300 w-1/2 md:w-1/4 mt-4 p-2' type="submit" value="Log in" />
+                {errorMassage}
             </form>
-            {errorMassage}
+
             <div className='text-center'>
                 <p><Link to='/login' onClick={forgotPassword}>Forgot Password</Link></p>
                 <p>Do not account Please register <Link className='text-red-600 font-bold' to='/registration'>Register</Link></p>

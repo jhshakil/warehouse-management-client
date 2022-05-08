@@ -30,13 +30,13 @@ const Registration = () => {
         createUserWithEmailAndPassword(email, password)
     }
     return (
-        <div className='w-3/4 m-auto'>
+        <div className='w-full md:w-3/4 m-auto'>
             <h1 className='text-3xl font-bold text-center mt-8'>Registration</h1>
             <SocialLogin></SocialLogin>
             <form onSubmit={handleRegister} className='p-8'>
                 <input ref={emailRef} className='block m-auto bg-gray-300 w-1/2 mt-4 p-2' type="email" placeholder='Enter Your Email' />
                 <input ref={passwordRef} className='block m-auto bg-gray-300 w-1/2 mt-4 p-2' type="password" placeholder='Enter Your Password' />
-                <input className='block m-auto bg-orange-300 w-1/4 mt-4 p-2' type="submit" value="Registration" />
+                <input className='block m-auto bg-orange-300 w-1/2 md:w-1/4 mt-4 p-2' type="submit" value="Registration" />
             </form>
             <div className='text-center'>
                 <p>Have an Account Please <Link className='text-red-600 font-bold' to='/login'>Log In</Link></p>

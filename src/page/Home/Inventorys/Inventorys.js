@@ -1,4 +1,3 @@
-import { RefreshIcon } from '@heroicons/react/solid';
 import React, { useEffect, useState } from 'react';
 import Inventory from './inventory';
 

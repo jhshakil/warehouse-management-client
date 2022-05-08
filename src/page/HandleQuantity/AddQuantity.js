@@ -1,15 +1,7 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import { useParams } from 'react-router-dom';
 
 const AddQuantity = () => {
-    // const [inventorys, setInventorys] = useState({});
-    // useEffect(() => {
-    //     const url = `https://powerful-depths-51836.herokuapp.com/inventory/${inventoryId}`;
-    //     fetch(url)
-    //         .then(res => res.json())
-    //         .then(data => console.log(data.quantity))
-    // }, [])
-    // console.log(inventorys)
     const { inventoryId } = useParams()
     const quantityRef = useRef('');
     const handleQuantity = event => {

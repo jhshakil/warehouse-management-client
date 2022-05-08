@@ -5,7 +5,6 @@ import Home from './page/Home/Home';
 import Footer from './page/Shared/Footer/Footer';
 import Login from './page/Login/Login';
 import Registration from './page/Registration/Registration';
-import ItemsUpdate from './page/ItemsUpdate/ItemsUpdate';
 import InventoryDetails from './page/InventoryDetails/InventoryDetails';
 import RequireAuth from './page/Shared/RequireAuth/RequireAuth'
 import ManageItems from './page/ManageItems/ManageItems';
@@ -27,7 +26,7 @@ function App() {
   return (
     <div className=''>
       {
-        loading ? <div className='flex justify-center items-center'><BounceLoader color={'#F5A623'} loading={loading} size={100} /></div> :
+        loading ? <div className='flex justify-center h-40 align-center'><BounceLoader color={'#F5A623'} loading={loading} size={100} /></div> :
           <div>
             <Header></Header>
             <Routes>
@@ -35,7 +34,6 @@ function App() {
               <Route path='/home' element={<Home></Home>}>Home</Route>
               <Route path='/login' element={<Login></Login>}>Log In</Route>
               <Route path='/registration' element={<Registration></Registration>}>Registation</Route>
-              <Route path='/itemsupdate' element={<ItemsUpdate></ItemsUpdate>}>Items Update</Route>
               <Route path='/inventory/:inventoryId' element={<RequireAuth><InventoryDetails></InventoryDetails></RequireAuth>}>Inventory</Route>
               <Route path='/manageitems' element={<RequireAuth><ManageItems></ManageItems></RequireAuth>}>Manage Items</Route>
               <Route path='/additem' element={<RequireAuth><AddItem></AddItem></RequireAuth>}>Add Item</Route>
