@@ -26,7 +26,7 @@ function App() {
   return (
     <div className=''>
       {
-        loading ? <div className='flex justify-center h-40 align-center'><BounceLoader color={'#F5A623'} loading={loading} size={100} /></div> :
+        loading ? <div className='flex justify-center items-center h-screen'><BounceLoader color={'#F5A623'} loading={loading} size={100} /></div> :
           <div>
             <Header></Header>
             <Routes>
