@@ -11,7 +11,7 @@ const AddQuantity = () => {
             return alert('Please enter a valid quantity')
         }
         const add = { quantity };
-        const url = `https://powerful-depths-51836.herokuapp.com/inventory/${inventoryId}`
+        const url = `https://warehouse-management-server-ruby.vercel.app/inventory/${inventoryId}`
         fetch(url, {
             method: 'PUT',
             headers: {

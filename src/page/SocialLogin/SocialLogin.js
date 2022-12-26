@@ -23,7 +23,7 @@ const SocialLogin = () => {
         if (user) {
             // navigate(from, { replace: true });
             const email = user.user.email;
-            const { data } = await axios.post('https://powerful-depths-51836.herokuapp.com/login', { email });
+            const { data } = await axios.post('https://warehouse-management-server-ruby.vercel.app/login', { email });
             localStorage.setItem('accessToken', data.accessToken);
             navigate(from, { replace: true });
         }

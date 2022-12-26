@@ -7,14 +7,14 @@ const ManageItems = () => {
     const [inventorys, setInventorys] = useState([]);
     useEffect(() => {
         // console.log(inventorys)
-        fetch('https://powerful-depths-51836.herokuapp.com/inventory')
+        fetch('https://warehouse-management-server-ruby.vercel.app/inventory')
             .then(res => res.json())
             .then(data => setInventorys(data))
     }, [])
     const handleDelete = id => {
         const proceed = window.confirm('Delete This Item')
         if (proceed) {
-            const url = `https://powerful-depths-51836.herokuapp.com/inventory/${id}`;
+            const url = `https://warehouse-management-server-ruby.vercel.app/inventory/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })

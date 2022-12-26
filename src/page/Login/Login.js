@@ -33,7 +33,7 @@ const Login = () => {
         const email = emailRef.current.value;
         const password = passwordRef.current.value;
         await signInWithEmailAndPassword(email, password);
-        const { data } = await axios.post('https://powerful-depths-51836.herokuapp.com/login', { email });
+        const { data } = await axios.post('https://warehouse-management-server-ruby.vercel.app/login', { email });
         localStorage.setItem('accessToken', data.accessToken);
         // navigate(from, { replace: true });
     }

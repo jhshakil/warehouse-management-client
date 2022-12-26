@@ -9,7 +9,7 @@ const AddItem = () => {
     const [user] = useAuthState(auth);
     const navigate = useNavigate();
     const onSubmit = data => {
-        const url = 'https://powerful-depths-51836.herokuapp.com/inventory'
+        const url = 'https://warehouse-management-server-ruby.vercel.app/inventory'
         fetch(url, {
             method: 'POST',
             headers: {
